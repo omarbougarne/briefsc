@@ -1,10 +1,10 @@
 <?php
-require_once '../model/usersDAO.php';  
+require_once 'model/usersDAO.php';  
 
 function indexAction(){
     $usersDAO = new UsersDAO();
     $users = $usersDAO->getUsers();
-    require_once 'view/userlist.php';
+    require_once 'view/users/userslist.php';
 }
 
 function createAction(){

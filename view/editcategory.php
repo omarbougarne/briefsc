@@ -6,7 +6,7 @@ ob_start();
         <input name="ID" value="<?= $bus->ID?>">
         <br>
 
-        <label for="lastName">Bus Name:</label>
+        <label for="lastName">User Name:</label>
         <input name="bus_number" value="<?= $bus->bus_number?>">
         <br>
 

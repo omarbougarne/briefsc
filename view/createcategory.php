@@ -1,8 +1,8 @@
 <?php
 ob_start();
 ?>
-    <form action="/index.php?action=store" method="post">
-        <label for="firstName">ID:</label>
+    <form action="" method="post">
+        <label for="firstName">Email:</label>
         <input name="ID">
         <br>
 
