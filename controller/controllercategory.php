@@ -1,5 +1,5 @@
 <?php
-require_once '../model/categoryDAO.php';  
+require_once 'model/categoryDAO.php';  
 
 function indexCategoryAction(){
     $categoryDAO = new CategoryDAO();

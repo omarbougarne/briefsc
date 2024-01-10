@@ -1,5 +1,6 @@
 <?php
 require_once './controller/controlleruser.php';
+require_once './controller/controllercategory.php';
 // if (isset($_GET['action'])) {
 //     $action = $_GET['action'];
 //     switch ($action) {
@@ -25,7 +26,7 @@ require_once './controller/controlleruser.php';
 // }else{
 
 
-            indexAction();
+    indexCategoryAction();
             
            
 // }

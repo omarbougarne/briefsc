@@ -71,6 +71,20 @@ class CategoryDAO
         $stmt->bindParam(':cat_id', $cat_id);
         $stmt->execute();
     }
+    public function getLatestCategory($cat_id)
+    {
+        $query = "SELECT * FROM article WHERE article_id = :article_id ORDER BY DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':article_id', $cat_id);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            return new Article($result['article_id'], $result['article_name'], $result['creation_date'],$result['image'],$result['article_main'], $result['archived'], $result['fk_cat'],$result['fk_email']);
+        } else {
+            return null;
+        }
+    }
 }
 
 ?>

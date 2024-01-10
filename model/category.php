@@ -12,19 +12,18 @@ class Category
         $this->creation_date = $creation_date;
     }
 
-    // Getter for cat_id
+
     public function getCatId()
     {
         return $this->cat_id;
     }
 
-    // Getter for cat_name
     public function getCatName()
     {
         return $this->cat_name;
     }
 
-    // Getter for creation_date
+
     public function getCreationDate()
     {
         return $this->creation_date;

@@ -21,8 +21,8 @@ ob_start();
         <label for="age">Capacity:</label>
         <input name="capacity">
         <br>
-        <label for="age">fkfk:</label>
-        <input name="fk">
+        <label for="datetime">Select Date and Time:</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
         <br>
 
         <input type="submit" value="Submit" name="add">
