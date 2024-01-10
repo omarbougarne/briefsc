@@ -17,8 +17,8 @@ ob_start();
         <td><?= $category->getCatName() ?></td>
         <td><?= $category->getCreationDate() ?></td>
         <td>
-            <a href="index.php?action=edit&id=<?= $category->getCatId() ?>">Edit</a>
-            <a href="index.php?action=delete&id=<?= $category->getCatId() ?>">Delete</a>
+            <a href="/index.php?action=edit&id=<?php echo $category->cat_id ?>">Edit</a>
+            <a href="/index.php?action=delete&id=<?php echo $category->cat_id ?>">Delete</a>
         </td>
     </tr>
 <?php endforeach; ?>

@@ -1,5 +1,5 @@
 <?php
-require_once 'model/categoryDAO.php';  
+class ControllerCategory{ 
 
 function indexCategoryAction(){
     $categoryDAO = new CategoryDAO();
@@ -59,5 +59,6 @@ function destroyCategoryAction(){
     $categoryDAO->deleteCategory($cat_id);
     header('location:index.php?action=list_categories');
     exit();
+}
 }
 ?>

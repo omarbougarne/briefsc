@@ -1,5 +1,5 @@
 <?php
-require_once 'model/categoryDAO.php';  
+class ControllerArticle{
 
 function indexArticleAction(){
     $articleDAO = new ArticleDAO();
@@ -66,5 +66,6 @@ function destroyCategoryAction(){
     $articleDAO->deleteCategory($article_id);
     header('location:index.php?action=list_article');
     exit();
+}
 }
 ?>
