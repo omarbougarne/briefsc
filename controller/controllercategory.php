@@ -9,11 +9,11 @@ function indexCategoryAction(){
 }
 
 function createCategoryAction(){
-    require_once 'view/create_category.php';
+    require_once 'view/createcategory.php';
 }
 
 function storeCategoryAction(){
-    $newCategory = new Category(null, $_POST['cat_name'], $_POST['creation_date']);
+    $newCategory = new Category($_POST['cat_id'], $_POST['cat_name'], $_POST['creation_date']);
 
 
     $categoryDAO = new CategoryDAO();
@@ -22,7 +22,7 @@ function storeCategoryAction(){
     $categoryDAO->addCategory($newCategory);
 
 
-    header('location:index.php?action=list_categories');
+    header('location:index.php?action=categorylist');
     exit();
 }
 

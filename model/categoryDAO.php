@@ -13,8 +13,8 @@ class CategoryDAO
     {
         $query = "SELECT * FROM category";
         $stmt = $this->db->query($query);
-        $stmt->execute();
         $categoriesData = $stmt->fetchAll();
+        $stmt->execute();
         $categories = array();
 
         foreach ($categoriesData as $categoryData) {
