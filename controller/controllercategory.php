@@ -1,6 +1,7 @@
 <?php
+require_once 'model/categoryDAO.php';
 class ControllerCategory{ 
-
+    
 function indexCategoryAction(){
     $categoryDAO = new CategoryDAO();
     $categories = $categoryDAO->getCategories();

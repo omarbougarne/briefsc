@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-    <form action="" method="post">
+    <form action="index.php?action=add" method="post">
         <label for="firstName">Email:</label>
         <input name="ID">
         <br>
