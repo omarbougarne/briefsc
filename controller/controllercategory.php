@@ -53,7 +53,7 @@ function updateCategoryAction(){
     exit();
 }
 
-function deleteCategoryAction($cat_id){
+function deleteCategoryAction(){
     // $cat_id = $_GET['cat_id'];
     // $categoryDAO = new CategoryDAO();
     // $category = $categoryDAO->getCategoryById($cat_id);
@@ -62,7 +62,7 @@ function deleteCategoryAction($cat_id){
     require_once 'view/deletecategory.php';
 }
 
-function destroyCategoryAction($cat_id){
+function destroyCategoryAction(){
     $cat_id = $_GET['cat_id'];
     $categoryDAO = new CategoryDAO();
     $categoryDAO->deleteCategory($cat_id);

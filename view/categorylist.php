@@ -20,7 +20,7 @@ ob_start();
         <td><?= $category->getCreationDate() ?></td>
 
         <td><a href="" class="btn btn-warning">Update</a></td>
-        <td><a href="index.php?action=delete" class="btn btn-danger"><?= $category->getCategoryById($cat_id)?>Delete</a></td>
+        <td><a href="index.php?action=delete&cat_id=<?= $category->getCatId() ?>" class="btn btn-danger">Delete</a></td>
     </tr>
 <?php endforeach; ?>
 </tbody>
