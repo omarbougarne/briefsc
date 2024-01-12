@@ -36,20 +36,23 @@ function editCategoryAction(){
     $cat_id = $_GET['cat_id'];
     $categoryDAO = new CategoryDAO();
     $category = $categoryDAO->getCategoryById($cat_id);
-    require_once 'view/edit_category.php';
+    require_once 'view/editcategory.php';
 }
 
 function updateCategoryAction(){
-    $updatedCategory = new Category($_POST['cat_id'], $_POST['cat_name'], $_POST['creation_date']);
+    $cat_id = $_GET['cat_id'];
+    extract($_POST);
+    // $updatedCategory = new Category($cat_id,$_POST['cat_name'], $_POST['creation_date'],);
 
 
-    $categoryDAO = new CategoryDAO();
+    // $categoryDAO = new CategoryDAO();
 
 
-    $categoryDAO->updateCategory($updatedCategory);
+    // $this->catDAO->updateCategory($_POST);
+    var_dump($cat_name,$creation_date);
 
 
-    header('location:index.php?action=list_categories');
+    header('location:index.php');
     exit();
 }
 
@@ -63,7 +66,7 @@ function deleteCategoryAction(){
 }
 
 function destroyCategoryAction(){
-    $cat_id = $_GET['cat_id'];
+    $cat_id = $_GET['id'];
     $categoryDAO = new CategoryDAO();
     $categoryDAO->deleteCategory($cat_id);
     header('location:index.php');

@@ -53,7 +53,7 @@ class CategoryDAO
     }
 
 
-    public function updateCategory(Category $category)
+    public function updateCategory( $category)
     {
         $query = "UPDATE category SET cat_name = :cat_name, creation_date = :creation_date WHERE cat_id = :cat_id";
         $stmt = $this->db->prepare($query);

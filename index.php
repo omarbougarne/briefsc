@@ -9,17 +9,18 @@ if (isset($_GET['action'])) {
            $controllercategory-> createCategoryAction();
             break;
         case 'destroy':
+           
            $controllercategory->destroyCategoryAction();
             break;
-        // case 'edit':
-        //     editAction();
-        //     break;
+        case 'edit':
+            $controllercategory->editCategoryAction();
+            break;
         case 'store':
             $controllercategory-> storeCategoryAction();
             break;
-        // case 'update':
-        //     updateAction();
-        //     break;
+        case 'update':
+            $controllercategory->updateCategoryAction();
+            break;
         case 'delete':
            $controllercategory->deleteCategoryAction();
             break;
