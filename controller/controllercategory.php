@@ -22,7 +22,7 @@ function storeCategoryAction(){
     $categoryDAO->addCategory($newCategory);
 
 
-    header('location:index.php?action=categorylist');
+    header('location:index.php');
     exit();
 }
 
