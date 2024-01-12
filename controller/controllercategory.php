@@ -1,6 +1,12 @@
 <?php
 require_once 'model/categoryDAO.php';
 class ControllerCategory{ 
+    private $catDAO;
+
+    public function __construct()
+    {
+        $this->catDAO = new CategoryDAO();
+    }
     
 function indexCategoryAction(){
     $categoryDAO = new CategoryDAO();
@@ -47,18 +53,20 @@ function updateCategoryAction(){
     exit();
 }
 
-function deleteCategoryAction(){
+function deleteCategoryAction($cat_id){
+    // $cat_id = $_GET['cat_id'];
+    // $categoryDAO = new CategoryDAO();
+    // $category = $categoryDAO->getCategoryById($cat_id);
     $cat_id = $_GET['cat_id'];
-    $categoryDAO = new CategoryDAO();
-    $category = $categoryDAO->getCategoryById($cat_id);
-    require_once 'view/delete_category.php';
+    $cat = $this->catDAO->getCategoryById($cat_id);
+    require_once 'view/deletecategory.php';
 }
 
-function destroyCategoryAction(){
+function destroyCategoryAction($cat_id){
     $cat_id = $_GET['cat_id'];
     $categoryDAO = new CategoryDAO();
     $categoryDAO->deleteCategory($cat_id);
-    header('location:index.php?action=list_categories');
+    header('location:index.php');
     exit();
 }
 }
