@@ -1,58 +1,61 @@
 <?php
-require_once '../model/tagDAO.php';
+require_once 'model/tagDAO.php';
+class ControllerTag{
+    private $tagDAO;
 
+    public function __construct()
+    {
+        $this->tagDAO = new TagDAO();
+    }
 function indexTagAction(){
-    $db = Database::getInstance()->getConnection();
 
-    $tagDAO = new TagDAO($db);
+    $tagDAO = new TagDAO();
     $tags = $tagDAO->getTags();
     require_once 'view/taglist.php';
 }
 
 function createTagAction(){
-    require_once 'view/create_tag.php';
+    require_once 'view/createtag.php';
 }
 
 function storeTagAction(){
     $newTag = new Tag($_POST['tag_name']);
-    $db = Database::getInstance()->getConnection();
-    $tagDAO = new TagDAO($db);
+    $tagDAO = new TagDAO();
     $tagDAO->addTag($newTag);
-    header('location:index.php?action=list_tags');
+    header('location:index.php');
     exit();
 }
 
 function editTagAction(){
     $tag_name = $_GET['tag_name'];
-    $db = Database::getInstance()->getConnection();
-    $tagDAO = new TagDAO($db);
+    $tagDAO = new TagDAO();
     $tag = $tagDAO->getTagByName($tag_name);
-    require_once 'view/edit_tag.php';
+    require_once 'view/edittag.php';
 }
 
 function updateTagAction(){
-    $updatedTag = new Tag($_POST['tag_name']);
-    $db = Database::getInstance()->getConnection();
-    $tagDAO = new TagDAO($db);
-    $tagDAO->updateTag($updatedTag);
-    header('location:index.php?action=list_tags');
+    $tag_name = $_GET['tag_name'];
+    extract($_POST);
+    $this->tagDAO->updateTag($_POST);
+    var_dump($tag_name);
+
+    header('location:index.php');
     exit();
 }
 
 function deleteTagAction(){
     $tag_name = $_GET['tag_name'];
-    $db = Database::getInstance()->getConnection();
-    $tagDAO = new TagDAO($db);
+    $tagDAO = new TagDAO();
     $tag = $tagDAO->getTagByName($tag_name);
-    require_once 'view/delete_tag.php';
+    require_once 'view/deletetag.php';
 }
 
 function destroyTagAction(){
     $tag_name = $_GET['tag_name'];
-    $db = Database::getInstance()->getConnection();
-    $tagDAO = new TagDAO($db);
+    $tagDAO = new TagDAO();
     $tagDAO->deleteTag($tag_name);
-    header('location:index.php?action=list_tags');
+    header('location:index.php');
     exit();
+}
 }
 ?>

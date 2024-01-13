@@ -6,19 +6,27 @@ ob_start();
 <table>
 <thead>
     <tr>
-        <th>Category Name</th>
-        <th>Creation Date</th>
+        <th>ID:</th>
+        <th>Article Name:</th>
+        <th>Creation Date:</th>
+        <th>Image:</th>
+        <th>Article:</th>
+        <th>Archive:</th>
         <th>Action</th>
     </tr>
 </thead>
 <tbody>
-<?php foreach ($categories as $category): ?>
+<?php foreach ($articles as $article): ?>
     <tr>
-        <td><?= $category->getCatName() ?></td>
-        <td><?= $category->getCreationDate() ?></td>
+        <td><?= $article->getArticleId() ?></td>
+        <td><?= $article->getArticleName() ?></td>
+        <td><?= $article->getCreationDateArticle() ?></td>
+        <td><?= $article->getImage() ?></td>
+        <td><?= $article->getArticleMain() ?></td>
+        <td><?= $article->getArchived() ?></td>
         <td>
-            <a href="index.php?action=edit&id=<?= $category->getCatId() ?>">Edit</a>
-            <a href="index.php?action=delete&id=<?= $category->getCatId() ?>">Delete</a>
+            <a href="index.php?action=editarticle&article_id=<?= $article->getArticleId() ?>">Edit</a>
+            <a href="index.php?action=deletearticle&article_id=<?= $article->getArticleId() ?>">Delete</a>
         </td>
     </tr>
 <?php endforeach; ?>

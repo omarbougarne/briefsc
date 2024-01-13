@@ -2,23 +2,21 @@
 ob_start();
 // include_once 'controller/controlleruser.php';
 ?>
-<a href="index.php">Add</a>
+<a href="index.php?action=createtag">Add</a>
 <table>
 <thead>
     <tr>
-        <th>Category Name</th>
-        <th>Creation Date</th>
+        <th>Tag Name</th>
         <th>Action</th>
     </tr>
 </thead>
 <tbody>
-<?php foreach ($categories as $category): ?>
+<?php foreach ($tags as $tag): ?>
     <tr>
-        <td><?= $category->getCatName() ?></td>
-        <td><?= $category->getCreationDate() ?></td>
+        <td><?= $tag->getTagName() ?></td>
         <td>
-            <a href="index.php?action=edit&id=<?= $category->getCatId() ?>">Edit</a>
-            <a href="index.php?action=delete&id=<?= $category->getCatId() ?>">Delete</a>
+            <a href="index.php?action=edittag&tag_name=<?= $tag->getTagName() ?>">Edit</a>
+            <a href="index.php?action=deletetag&tag_name=<?= $tag->getTagName() ?>">Delete</a>
         </td>
     </tr>
 <?php endforeach; ?>

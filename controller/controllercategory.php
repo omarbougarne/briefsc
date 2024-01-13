@@ -48,7 +48,7 @@ function updateCategoryAction(){
     // $categoryDAO = new CategoryDAO();
 
 
-    // $this->catDAO->updateCategory($_POST);
+    $this->catDAO->updateCategory($_POST);
     var_dump($cat_name,$creation_date);
 
 

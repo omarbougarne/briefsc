@@ -1,11 +1,11 @@
 <?php
+require_once 'tag.php';
 class TagDAO
 {
     private $db;
 
-    public function __construct($db)
-    {
-        $this->db = $db;
+    public function __construct(){
+        $this->db = Database::getInstance()->getConnection();
     }
 
     public function getTags()
@@ -49,11 +49,10 @@ class TagDAO
     }
 
 
-    public function updateTag(Tag $tag)
+    public function updateTag($tag)
     {
         $query = "UPDATE tag SET tag_name = :tag_name WHERE tag_name = :tag_name";
         $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':old_tag_name', $tag->getTagName());
         $stmt->bindParam(':tag_name', $tag->getTagName());
         $stmt->execute();
     }
